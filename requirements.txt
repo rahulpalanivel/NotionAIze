@@ -1,0 +1,8 @@
+streamlit
+google-generativeai
+google-genai
+httpx
+
+python-dotenv
+mcp
+mcp[cli]
