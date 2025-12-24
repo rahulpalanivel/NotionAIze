@@ -1,7 +1,9 @@
 import os
 from dotenv import load_dotenv
 
+import langsmith as ls
 from langchain_openai import AzureChatOpenAI
+from langgraph.checkpoint.memory import InMemorySaver
 
 load_dotenv()
 
@@ -13,3 +15,10 @@ azure_model = AzureChatOpenAI(
     temperature=0.1
 )
 
+
+trace_client = ls.Client(
+    api_url="https://api.smith.langchain.com",
+    api_key=os.getenv("TRACING_KEY")
+)
+
+memory = InMemorySaver()
